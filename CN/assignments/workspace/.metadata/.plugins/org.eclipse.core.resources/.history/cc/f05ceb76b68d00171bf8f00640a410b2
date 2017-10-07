@@ -1,0 +1,65 @@
+import java.lang.*;
+import java.net.*;
+import java.io.*;
+
+public class ChatThread implements Runnable {
+	private Socket clientSocket = null;
+	private DataInputStream readInput = null;
+	public PrintStream writeOutput = null;
+	private ChatThread chatThreads[] = null;
+	private int curr;
+	private int maxNumberOfClients;
+	
+	public ChatThread(Socket cs, ChatThread threads[], int i)
+	{
+		this.clientSocket = cs;
+		this.chatThreads = threads;
+		this.maxNumberOfClients = this.chatThreads.length;
+		this.curr = i;
+	}
+	
+	private String  AcceptName()
+	{
+		String name = null;
+		this.writeOutput.println("Enter your name?");
+		try
+		{
+			name = this.readInput.readUTF();
+		}
+		catch (IOException e)
+		{
+			System.out.println("Could not read name.");
+		}
+		return name;
+	}
+	
+	
+	public void run()
+	{
+		
+		try
+		{
+			this.readInput = new DataInputStream(this.clientSocket.getInputStream());
+			this.writeOutput = new PrintStream(this.clientSocket.getOutputStream());
+			String name = null;
+			while(name == null)
+			{
+				name = AcceptName();
+			}
+			this.writeOutput.println("Welcome " + name + " to the chat server.");
+			
+			synchronized(this)
+			{
+				for(int i = 0; i < this.maxNumberOfClients; i++)
+				{
+					
+				}
+			}
+		}
+		catch(IOException e)
+		{
+			System.out.println("Could not create I/o stream");
+		}
+		
+	}
+}

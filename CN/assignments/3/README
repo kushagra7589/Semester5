@@ -1,0 +1,30 @@
+Multithreaded Chat Server
+
+Name: Kushagra Arora
+Roll Number: 2015049
+
+This program implements a chat server that can handle upto 10 clients. The server accepts clients and the connected clients can talk to each other. Moreover, on the server side every line written by any client is reversed and printed.
+
+Compile :
+javac -Xlint:deprecation 2015049Server.java
+javac -Xlint:deprecation 2015049Thread.java
+[Make sure ChatServer.java and ChatThread.java are in the same folder]
+
+Execute :
+java ChatServer <portNumber>
+
+About the code:
+There are majorly two classes that implement the chat server:
+Class ChatServer:
+This class takes in the port number as input and creates a ServerSocket on that port if it is avaiable, else it throws an exception.
+Moreover, it then waits for clients to connect to the server. When a client connects, it creates a thread - ChatThread for that client.
+The server supports upto 10 clients. 
+
+Class ChatThread:
+This class is a subThread which implements the interaction of the server with a particular client. In this class, the data from the client is read and parsed and sent to all other clients. This also handles the leaving of a client.
+
+
+THE CLIENTS:
+We can telnet to this server and all those machines will act as clients. 
+Command:
+telnet <ip-address/localhost> <portNumber>

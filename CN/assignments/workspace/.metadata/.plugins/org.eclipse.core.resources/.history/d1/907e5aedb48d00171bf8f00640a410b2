@@ -1,0 +1,37 @@
+import java.lang.*;
+import java.net.*;
+import java.io.*;
+
+public class ChatThread implements Runnable {
+	private Socket clientSocket = null;
+	private DataInputStream readInput = null;
+	private DataOutputStream writeOutput = null;
+	private ChatThread chatThreads[] = null;
+	private int maxNumberOfClients;
+	
+	public ChatThread(Socket cs, ChatThread threads[])
+	{
+		this.clientSocket = cs;
+		this.chatThreads = threads;
+		this.maxNumberOfClients = this.chatThreads.length;
+	}
+	
+	
+	public void run()
+	{
+		
+		try
+		{
+			this.readInput = new DataInputStream(this.clientSocket.getInputStream());
+		}
+		catch IOException
+		{
+			System.out.println("Could not create I/o stream");
+		}
+		finally
+		{
+			System.out.print("Everything went well.");
+		}
+		
+	}
+}

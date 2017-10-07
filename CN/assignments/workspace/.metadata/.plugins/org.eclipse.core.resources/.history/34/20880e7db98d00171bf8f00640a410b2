@@ -1,0 +1,32 @@
+import java.net.*;
+
+public class ChatServer {
+	private ServerSocket serverSocket = null;
+	private Socket clientSocket = null;
+	private maxClients = 10;
+	private ChatThread chatThreads[] = null;
+	
+	public ChatServer(int port)
+	{
+		try
+		{
+			this.serverSocket = new ServerSocket(port);
+		}
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
+	}
+	
+	public static void main(String args[])
+	{
+		if(args.length < 2)
+		{
+			System.out.println("Usage ChatServer <port>");
+			return;
+		}
+		int pno = Integer.parseInt(args[1]);
+		ChatServer chatServer = new ChatServer(pno);
+	}
+	
+}

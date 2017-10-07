@@ -1,0 +1,15 @@
+Multithreaded Chat Room
+
+Name: Kushagra Arora
+Roll Number: 2015049
+
+This program implements a chat room that can handle upto 50 clients. The server accepts clients and the connected clients can talk to each other.
+
+Compile :
+javac -Xlint:deprecation Server_2015049r1.java
+javac -Xlint:deprecation Client_2015049r1.java
+
+Execute :
+java ChatServer <portNumber>
+java ChatClient <hostaddress> <portNumber>
+

@@ -1,0 +1,7 @@
+import java.net.*;
+
+public class ChatServer {
+	private ServerSocket serverSocket = null;
+	private Socket clientSocket = null;
+	
+}

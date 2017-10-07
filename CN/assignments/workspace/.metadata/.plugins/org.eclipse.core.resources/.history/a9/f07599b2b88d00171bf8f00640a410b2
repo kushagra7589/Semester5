@@ -1,0 +1,14 @@
+import java.net.*;
+
+public class ChatServer {
+	private ServerSocket serverSocket = null;
+	private Socket clientSocket = null;
+	private maxClients = 10;
+	private ChatThread chatThreads[] = null;
+	
+	public static void main(String args[])
+	{
+		
+	}
+	
+}

@@ -1,0 +1,14 @@
+import java.lang.*;
+import java.net.*;
+import java.io.*;
+
+public class ChatThread implements Runnable {
+	private Socket clientSocket = null;
+	private DataInputStream readInput = null;
+	private DataOutputStream writeOutput = null;
+	private ChatThread chatThreads[] = null;
+	public void run()
+	{
+		
+	}
+}
