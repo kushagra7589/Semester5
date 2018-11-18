@@ -1,0 +1,8 @@
+The following files have been added:
+
+packet_2015049r1.java : declares a packet class for simulating a packet
+
+client_2015049r1.java : declares the client class which sends packets and waits for their acknowledgements. It does a timeout/triple ack and changes the window_size accordingly.
+
+server_2015049r1.java : declares the server class which simply sends an ACK for every packet received.
+

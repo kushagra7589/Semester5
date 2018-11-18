@@ -1,0 +1,45 @@
+Introduction
+	-> motivation remains the same, we will add the detials about FGSM and jacobian method and our aim to test jacobian attacks against FGSM training and vice-versa
+
+Related Work
+	-> Goodfellow's papers and blogs.
+	-> State-of-the-art : (defense) emsemble adversial training.
+	-> cleverhans library by goodfellow et al
+
+DataSet and Evaluation
+	-> ImageNet : NIPS' devset for creating attacks - 1000 images each of size 299x299. Evaluation is done on basis of max-epsilon value.
+	-> Image Preprocessing: Transforming pixel values from [0, 255] to [-1,  1] for stability and convergence. 
+	-> We have used google's inception v3 network as our classifier.  
+	-> MNIST dataset - later
+
+Analysis and Progress
+	-> Compared accuracy of FGSM, Jacobian attacks on google's inception v3 network on ImageNet, and basicCNN on MNIST
+	-> Comparison of accuracy vs max-epsi keeping in mind the change in visual appearance of the image.
+	
+	Defense training on MNIST:
+	-> 	Defense training using FGSM, Jacobian.
+	-> Accuracy of Jacobian attack on FGSM adversarially trained model and vice-versa.
+
+
+	CHALLENGES:
+		- Increasing max-epsi increases misclassification however it produces recognisable changes in the image.
+		- Lack of generalised defense mechanism. Hence, we have to do ensembling which is highly time consuming.
+		- Targeted adverserial attacks take more time.
+
+Theory
+	-> FGSM theory and runtime and parameter analysis.
+	-> Jacobian theory and runtime and parameter analysis.
+
+Results
+	-> will do tomorrow.
+
+Future Work
+	-> Explporing different learning models with the same adverserial attack to check the generalisation of attacks.
+	-> As described in so and so paper, check the resistance of RBF kernel SVM against adverserial attacks.
+	-> *Universal perterbation that can misclassify different images*.
+	-> No modification in the dataset
+	-> We are using L-inf norm for error analyis rather than L2 norm as described in the proposal. 
+
+	Individual team member roles - subject to discussion
+
+

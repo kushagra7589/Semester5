@@ -1,0 +1,29 @@
+main headings
+
+---> What is bitcoin? (130 words)
+	-- crypto-currency based on a peer-to-peer to network without a central third party to enable transactions
+
+---> How does it work? (500 words)
+	-- transactions, blocks, signatures, public key, private key.
+	-- elimination of third party
+	-- double spending is still a problem
+		- what is double spending
+		- how is it prevented
+		- proof of work
+		- timestamp server
+
+---> Bitcoin mining (600-700 words)
+	-- investment of resources in terms of computational energy etc (so basically using something other than bitcoins to invest into bitcoin mining).=> value of the bitcoin fluctuates just like any other currency
+	-- incentive of mining - transaction fee + bitcoin reward
+	-- how does this work as a system without fail? [majority of honest nodes]
+	-- mining process = the payoffs
+	-- mining strategy
+	-- energy consumption and trends over the years
+
+---> Stability of bitcoin mining (300 - 350 words)
+	-- will the bitcoin fall down if there is a perturbation.
+	-- is there anything for attackers?
+	-- transaction fees
+
+---> Conclusion
+	-- is it benefitial to invest as a bitcoin miner?

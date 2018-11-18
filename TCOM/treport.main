@@ -1,0 +1,56 @@
+What is bitcoin?
+
+The common medium of digital transaction involves the mediation of a trusted third party which processes these electronic payments. This system suffers from the weakness of involving trust of the mediator which leads to a cost of mediation. This cost increases the transaction cost thereby reducing the possibility for small transactions. It is highly unlikely that someone will be willing to carry out a transaction of say Rs. 30 if there is a mediation cost of Rs. 30 itself. However, if there is a system in which we are not forced to trust a third party but instead, there is a mechanism in which we can compute a cryptographic proof for the transaction. This is exactly what bitcoin enables. Bitcoin is basically a decentralised crypto-currency implemented on a peer-to-peer network. 
+
+How does bitcoin Work?
+
+-- Transaction
+
+A bitcoin is represented by a chain of digital signatures. Every owner passes the coin to the next owner by digitally signing a hash of previous transaction appended with the public key of the next owner. In this way, the validity of the coin can be checked by checking the cryptographic validity of previous transactions. The ownership is determined by a private corresponding to the bitcoin address(public key). Any owner can initiate a transaction by a signed assertion of transfer of value from one address to another. However, there is one problem associated with this system - double spending. That is, a payee cannot know if the payer has used the coin in an earlier transaction or not. To overcome this problem, a peer-to-peer protocol was proposed. The idea was to create a global log structure of block chains with the timestamp of every transaction ever made. Here each block contains a sequence number, a timestamp, the cryptographic hash of the previous block, some metadata, a nonce and a set of valid Bitcoin transactions. In this way, the payee can verify if the coin was involved in any previous transaction or not. 
+
+-- Bitcoin mining
+
+The global log structure grows due to addition of new blocks. Any player involved with bitcoins can choose to be a miner and mine new blocks that add new transactions to log. Now, each block is added to the longest chain in the log structure. It may be questioned that if every new block is added to the longest chain, why are there more than one chains? This is because there can be multiple additions to the chains at the same time, even though the probabillity is quite low. In such a scenario, the miners maintain a log of both the chains and whenever there is a miner who outperforms others and adds a new block to a certain chain, it becomes the longest chain. However, what exactly is this competition? What are the miners doing to compete against each other.
+
+The miners needs to solve a computations puzzle called the proof of work which is thought to be difficult to solve but easy to verify. In this scheme, there is a target value T calculated periodically according to some constraints on difficulty. The miners aim is to find a specific nonce value N such that it satisfies:
+
+H(B.N) < T
+
+where B is the string representing previous transactions, and H is the bitcoin hash function. H is defined as 
+
+H(S) = SHA256(SHA256(S))
+
+The miner can randomly try nonce values until (1) is satisfied. Once N is found, the block can be added to the block chain structure. This process of finding a suitable nonce value requires a lot of computation and thus investment in terms of energy/power. The next section gives an analysis of the expectated energy required. 
+
+-- Investment in BitCoin Mining
+
+Let us look at equation (1) again. 
+
+H(B.N) < T
+
+Here, T depends on the number and speed of miners in the network. It is calculated according to the following equation:
+
+D = T_max / T
+
+where T_max = (2^{16} - 1)2^{208} \= 2^{224} and D is the difficulty.
+
+The hash function is chosen such that it behaves as a uniform random number generator which generates values from 0 to 2^{256} - 1. Thus, the probability p that a given nonce value N will satisfy equation(1) is given by
+
+p = T / 2^{256} = T_max / D * 2^{256} = 1 / D * 2^{32}.
+
+Let us setup an experiment such that each event is calculating the hash value using some nonce value.
+Let X = number of trials such that a block is successfully completed. 
+
+Since, these are dependent trials, X is a geometric random variable. We know that for any geometric random variable Y, E[Y] = 1/p where p is the probability of success.
+
+Hence, E[X] = 1/p = D*2^{32} / R
+
+This value of difficulty is re-calculated every 2016 blocks. This is done to keep the average time of discovering a new block nearly 10 minutes. At this rate, 2016 blocks are discovered every two weeks. The new difficulty is calculated using the following equation:
+
+Let D' be the previous difficulty, R' be the average hash rate of previous 2016 blocks and D be the new difficulty.
+
+D = {E[t] *  R' if D'/ 4 <= E[t] * R' <= 4D'
+	4D' if E[t] * R' > 4D'
+	D'/4 otherwise}
+where we take expected time to be such that 2016 blocks are calculated in 2 weeks. 
+
